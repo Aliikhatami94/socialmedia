@@ -1,0 +1,48 @@
+{% extends 'twitter/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'twitter/styles.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'create-tweet' %}" >
+            <button>New Tweet</button>
+        </a>
+        <a href="{% url 'logout' %}" >
+            <button>LOGOUT</button>
+        </a>
+        <table>
+            <tr>
+                <th>Tweet</th>
+                <th>Public</th>
+                <th>Date Tweeted</th>
+                <th>Date Updated</th>
+            </tr>
+            {% for tweet in tweet_list %}
+            <tr>
+                <td>{{ tweet.text }}</td>
+                <td>{{ tweet.public }}</td>
+                <td>{{ tweet.created_at }}</td>
+                <td>{{ tweet.updated_at }}</td>
+                <td>
+                    <a href="{% url 'delete-tweet' tweet.id %}" >
+                        <button>Delete</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'update-tweet' tweet.id %}" >
+                        <button>Update</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'comment' %}" >
+                        <button>Comment</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

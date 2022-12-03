@@ -1,0 +1,20 @@
+{% extends 'twitter/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'twitter/styles.css' %}" >
+{% endblock %}
+
+{% block content %}
+    <form method="POST" >
+    {% csrf_token %}
+        <p>
+            "{{ tweet.text }}"
+        </p>
+        Are you sure you would like to delete this tweet?
+        <input type="submit" value="Yes" name="yes"/>
+    </form>
+    <a href="{% url 'list-tweet' %}" >
+        <button>Cancel</button>
+    </a>
+{% endblock %}

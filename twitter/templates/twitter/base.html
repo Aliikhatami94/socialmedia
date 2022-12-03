@@ -1,0 +1,12 @@
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <a href="{% url 'list-tweet' %}" >
+        <h1>Twitter</h1>
+    </a>
+    {% block content %}
+    {% endblock %}
+</body>

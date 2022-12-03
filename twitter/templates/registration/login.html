@@ -1,0 +1,14 @@
+{% extends 'twitter/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'twitter/styles.css' %}" >
+{% endblock %}
+
+{%  block content %}
+    <form method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login" >
+    </form>
+{% endblock %}

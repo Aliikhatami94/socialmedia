@@ -1,0 +1,13 @@
+div {
+    border-radius: 25px;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
